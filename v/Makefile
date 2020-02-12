@@ -1,6 +1,6 @@
 
 build:
-	v -prod -cflags -flto -O3 main.v
+	v -prod -cflags -flto -O3 -march=skylake main.v
 
 run:
 	make build

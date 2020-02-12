@@ -49,7 +49,7 @@ export fn bench() void {
     var rc4 = RC4.new(key);
     var sum: u64 = 0;
     var i: u32 = 0;
-    while (i < 2000000000) : (i += 1) {
+    while (i < 1000000000) : (i += 1) {
         sum += rc4.get_byte();
     }
 

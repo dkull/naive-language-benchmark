@@ -54,7 +54,7 @@ func bench() {
 	var rc4 = newRc4(key)
 
 	var sum = uint64(0)
-	for i := 0; i < 2000000000; i++ {
+	for i := 0; i < 1000000000; i++ {
 		sum += uint64(rc4.getByte())
 	}
 

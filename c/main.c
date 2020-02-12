@@ -41,7 +41,7 @@ void bench() {
     struct RC4* rc4 = rc4_new(key, 23);
 
     long long sum = 0;
-    for (int i = 0; i < (long long) 2000000000; i++) {
+    for (int i = 0; i < (long long) 1000000000; i++) {
         sum += (long long) rc4_get_byte(rc4);
     }
     printf("c    rc4 %lli\n", sum);
