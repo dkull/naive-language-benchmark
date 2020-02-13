@@ -2,12 +2,12 @@
 Comparing naive implementations in compiled languages
 
 ```
-rustc  rust  rc4  127500317644  1828           real 1.82 
-gcc    c     rc4  127500317644                 real 1.97 
-gccgo  go    rc4  127500317644  2.728340626s   real 2.81 
-zig    zig   rc4  127500317644  2936           real 2.93 
-go     go    rc4  127500317644  6.133581484s   real 6.13 
-v      v     rc4  127500317644                 real 8.21 
+rustc  rust  rc4  127500317644  1828           real 1.83 
+gcc    c     rc4  127500317644                 real 1.96 
+zig    zig   rc4  127500317644  2655           real 2.65 
+gccgo  go    rc4  127500317644  2.657050779s   real 2.67 
+go     go    rc4  127500317644  6.219352521s   real 6.22 
+v      v     rc4  127500317644                 real 7.77 
 ```
 ```
 rustc 1.43.0-nightly (58b834344 2020-02-05)
