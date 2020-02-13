@@ -56,7 +56,7 @@ fn bench() {
     }
 
     let end = start.elapsed().as_millis();
-    println!("rust rc4 {} in {}", sum, end);
+    println!("|rust|rc4|{}|{}|", sum, end);
 }
 
 fn main() {

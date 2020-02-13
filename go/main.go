@@ -59,7 +59,7 @@ func bench() {
 	}
 
 	delta := time.Since(start)
-	fmt.Printf("go   rc4 %d in %+v\n", sum, delta)
+	fmt.Printf("|go|rc4|%d|%+v|\n", sum, delta)
 }
 
 func main() {

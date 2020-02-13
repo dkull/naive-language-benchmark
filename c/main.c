@@ -44,7 +44,7 @@ void bench() {
     for (int i = 0; i < (long long) 1000000000; i++) {
         sum += (long long) rc4_get_byte(rc4);
     }
-    printf("c    rc4 %lli\n", sum);
+    printf("|c|rc4|%lli||\n", sum);
 }
 
 int main() {

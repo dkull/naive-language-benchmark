@@ -50,7 +50,7 @@ fn bench() {
     for i := 0; i < 1000000000; i++ {
         sum += u64(rc4.get_byte())
     }
-    println("v    rc4 " + sum.str() + " in ?")
+    println("|v|rc4|" + sum.str() + "||")
 }
 
 fn main() {

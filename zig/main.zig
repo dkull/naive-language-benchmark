@@ -55,7 +55,7 @@ export fn bench() void {
 
     const end = std.time.milliTimestamp();
     const delta = end - start;
-    log("zig  rc4 {} in {}\n", .{ sum, delta });
+    log("|zig|rc4|{}|{}|\n", .{ sum, delta });
 }
 
 export fn prod(a: i64, b: i64) i64 {

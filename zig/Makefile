@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 
 build:
 	zig build-lib --release-fast --single-threaded --strip -dynamic main.zig
@@ -7,5 +8,5 @@ build:
 run:
 	make build
 	#./main
-	bash -c "/usr/bin/time -p ./main 2>&1 | head -n 2 | tr '\n' ' '"
+	sed 's/^/zig/' <(/usr/bin/time -p ./main 2>&1 | head -n 2 | tr '\n' ' ')
 	echo ""

@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 
 build:
 	make -s -C rust run
@@ -6,3 +7,5 @@ build:
 	make -s -C go run
 	make -s -C v run
 
+table:
+	make build | grep -v make | sort -t "|" -k 6 |column -s "|" -t -n
