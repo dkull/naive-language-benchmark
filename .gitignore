@@ -1,0 +1,8 @@
+main
+main_*
+*.rlib
+*.so
+*.a
+*.so.*
+*.h
+*.o
