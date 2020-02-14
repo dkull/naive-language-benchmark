@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 build:
 	go build -o main_go main.go
-	gccgo -Ofast -flto -march=native -o main_gcc main.go
+	go build -x -compiler gccgo -gccgoflags '-Ofast -flto -march=native' -o main_gcc main.go
 
 run:
 	make build
