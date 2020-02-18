@@ -15,7 +15,7 @@ table:
 
 	echo '```'
 	rustc --version
-	gcc-8 --version | head -n 1
+	gcc --version | head -n 1
 	echo -n "zig " && zig version
 	go version
 	gccgo --version | head -n 1

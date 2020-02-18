@@ -1,9 +1,7 @@
 SHELL := /bin/bash
 
 build:
-	# gcc-8 seems to be best out of 6-9
-	# clang 6-9 was trash
-	gcc-8 -fomit-frame-pointer -Ofast -mtune=skylake -march=native main.c -o main
+	gcc -fomit-frame-pointer -Ofast -mtune=skylake -march=native main.c -o main
 
 run:
 	make build

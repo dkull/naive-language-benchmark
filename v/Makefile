@@ -1,9 +1,7 @@
 SHELL := /bin/bash
 
 build:
-	# gcc-8 was best out of gcc-6..9
-	# clang-7 was junk, didn't test others
-	v -prod -cc gcc-8 -cflags -flto -O3 -march=skylake main.v
+	v -prod -cc gcc -cflags -flto -O3 -march=skylake main.v
 
 run:
 	make build
