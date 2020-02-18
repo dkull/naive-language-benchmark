@@ -2,12 +2,12 @@
 Comparing naive implementations in compiled languages
 
 ```
-rustc  rust  rc4  127500317644  1825           0:01.82 
-gcc    c     rc4  127500317644                 0:01.98 
-zig    zig   rc4  127500317644  2723           0:02.72 
-gccgo  go    rc4  127500317644  2.775598967s   0:02.79 
-go     go    rc4  127500317644  6.412793681s   0:06.41 
-v      v     rc4  127500317644                 0:07.63 
+gcc    c     rc4  127500317644                 0:01.56
+rustc  rust  rc4  127500317644  1690           0:01.69
+zig    zig   rc4  127500317644  2090           0:02.08
+gccgo  go    rc4  127500317644  2.32934505s    0:02.33
+go     go    rc4  127500317644  4.590444817s   0:04.59
+v      v     rc4  127500317644                 0:06.81
 ```
 ```
 rustc 1.43.0-nightly (5e7af4669 2020-02-16)
@@ -17,6 +17,7 @@ go version go1.14rc1 linux/amd64
 gccgo (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
 V 0.1.25 2ea2fed
 ```
+
 
 Benchmarks are run on:
 ```
