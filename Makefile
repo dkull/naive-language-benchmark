@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 build:
+	#echo "comp|lang|bench|result|stdout|00time"
 	make -s -C rust run
 	make -s -C c run
 	make -s -C zig run 
@@ -9,12 +10,12 @@ build:
 
 table:
 	echo '```'
-	make build | grep -v make | sort -t "|" -k 6 |column -s "|" -t -n
+	make -s build | sort -t "|" -k 6 |column -s "|" -t -n
 	echo '```'
 
 	echo '```'
 	rustc --version
-	gcc --version | head -n 1
+	gcc-8 --version | head -n 1
 	echo -n "zig " && zig version
 	go version
 	gccgo --version | head -n 1

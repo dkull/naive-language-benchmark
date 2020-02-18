@@ -7,5 +7,5 @@ build:
 run:
 	make build
 	#./main
-	sed 's/^/rustc/' <(/usr/bin/time -p ./main 2>&1 | head -n 2 | tr '\n' ' ')
+	sed 's/^/rustc/' <(/usr/bin/time -f "%E" ./main 2>&1 | head -n 2 | tr '\n' ' ')
 	echo ""

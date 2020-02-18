@@ -8,5 +8,5 @@ build:
 run:
 	make build
 	#./main
-	sed 's/^/zig/' <(/usr/bin/time -p ./main 2>&1 | head -n 2 | tr '\n' ' ')
+	sed 's/^/zig/' <(/usr/bin/time -f "%E" ./main 2>&1 | head -n 2 | tr '\n' ' ')
 	echo ""
