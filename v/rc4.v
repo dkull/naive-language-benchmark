@@ -47,7 +47,7 @@ fn bench() {
     mut rc4 := new_rc4(key)
 
     mut sum := u64(0)
-    for i := 0; i < 1000000000; i++ {
+    for i := 0; i < 250000000; i++ {
         sum += u64(rc4.get_byte())
     }
     println("|v|rc4|" + sum.str() + "||")

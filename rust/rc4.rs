@@ -51,7 +51,7 @@ fn bench() {
     let mut rc4 = RC4::new(key);
 
     let mut sum: u64 = 0;
-    for _i in 0..1000000000 {
+    for _i in 0..250000000 {
         sum += rc4.get_byte() as u64;
     }
 

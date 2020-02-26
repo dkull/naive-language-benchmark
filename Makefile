@@ -10,7 +10,7 @@ build:
 
 table:
 	echo '```'
-	make -s build | sort -t "|" -k 6 |column -s "|" -t -n
+	make -s build | sort -t "|" -k3,3 -k6,6 |column -s "|" -t -n
 	echo '```'
 
 	echo '```'

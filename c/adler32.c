@@ -48,5 +48,13 @@ void bench() {
 }
 
 int main() {
-    bench();
+    unsigned short MOD_ADLER = 65521;
+    unsigned long a = 1;
+    unsigned long b = 0;
+    for (int i = 0; i < (long) 250000000; i++) {
+        a = (a + i) % MOD_ADLER;
+        b = (b + a) % MOD_ADLER;
+    } 
+    unsigned long result = b << 16 | a;
+    printf("|c|adler32|%lx|N/A|\n", result);
 }
