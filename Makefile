@@ -30,6 +30,6 @@ readme:
 	echo "Benchmarks are run on:"
 	echo '```'
 	screenfetch -E -nN -d'-wm;-res;-de;-uptime;-pkgs;-shell;-host' || true
-	echo " Kernel mitigated CPU bugs:"
-	cat /proc/cpuinfo| grep bugs | head -n 1
+	echo -n " Mitigated CPU bugs: "
+	cat /proc/cpuinfo| grep bugs | head -n 1 | cut -d: -f 2
 	echo '```'

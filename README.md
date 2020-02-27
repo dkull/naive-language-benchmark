@@ -27,21 +27,21 @@ make -s readme
 ```
 
 ```
-rustc  rust  adler32      c8be4a0c     N/A            0:00.83 
-zig    zig   adler32      c8be4a0c     832            0:00.83 
-v      v     adler32      0xc8be4a0c                  0:00.90 
-go     go    adler32      c8be4a0c     N/A            0:00.95 
-gcc    c     adler32      c8be4a0c     N/A            0:01.01 
-gccgo  go    adler32      c8be4a0c     N/A            0:01.01 
+zig    zig   adler32      c8be4a0c     887            0:00.88 
+v      v     adler32      0xc8be4a0c                  0:00.92 
+rustc  rust  adler32      c8be4a0c     N/A            0:00.93 
+go     go    adler32      c8be4a0c     N/A            0:00.97 
+gcc    c     adler32      c8be4a0c     N/A            0:00.99 
+gccgo  go    adler32      c8be4a0c     N/A            0:01.02 
 
-zig    zig   millerrabin  183065       N/A            0:00.89 
-rustc  rust  millerrabin  183065       n/a            0:00.98 
+zig    zig   millerrabin  183065       N/A            0:00.93 
+rustc  rust  millerrabin  183065       n/a            0:01.05 
 
-rustc  rust  rc4          31875526832  455            0:00.45 
-gcc    c     rc4          31875526832                 0:00.54 
-zig    zig   rc4          31875526832  592            0:00.59 
-gccgo  go    rc4          31875526832  657.808078ms   0:00.73 
-go     go    rc4          31875526832  1.678324791s   0:01.67 
+rustc  rust  rc4          31875526832  492            0:00.49 
+gcc    c     rc4          31875526832                 0:00.55 
+gccgo  go    rc4          31875526832  666.719704ms   0:00.67 
+zig    zig   rc4          31875526832  683            0:00.68 
+go     go    rc4          31875526832  1.588962454s   0:01.59 
 v      v     rc4          31875526832                 0:01.91 
 ```
 ```
@@ -58,7 +58,6 @@ Benchmarks are run on:
  Kernel: x86_64 Linux 5.3.0-40-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
  GPU: GeForce GTX 1080 Ti, GeForce GTX 1080 Ti
- RAM: 7159MiB / 32055MiB
- Kernel mitigated CPU bugs:
-bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
+ RAM: 7188MiB / 32055MiB
+ Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```
