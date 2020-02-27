@@ -35,7 +35,7 @@ fn witness(n: u32, _s: u32, d: u32, a: u32) bool {
     return true;
 }
 
-fn is_rabin_miller_prime(n: u32, witnesses: [7]u8) bool {
+fn is_rabin_miller_prime(n: u32, witnesses: [7]u32) bool {
     var d: u32 = n / 2;
     var s: u32 = 1;
 
@@ -54,13 +54,13 @@ fn is_rabin_miller_prime(n: u32, witnesses: [7]u8) bool {
 }
 
 pub fn main() void {
-    const witnesses = [_]u8{ 2, 3, 5, 7, 11, 13, 17 };
+    const witnesses = [_]u32{ 2, 3, 5, 7, 11, 13, 17 };
     var prime_count: u32 = 0;
     var i: u32 = 3;
-    while (i < 2500000) : (i += 2) {
+    while (i < 2500000) : (i += 1) {
         if (is_rabin_miller_prime(i, witnesses)) {
             prime_count += 1;
         }
     }
-    log("|zig|rabinmiller|{}|{}|\n", .{ prime_count, "N/A" });
+    log("|zig|millerrabin|{}|{}|\n", .{ prime_count, "N/A" });
 }
