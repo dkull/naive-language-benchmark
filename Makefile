@@ -8,11 +8,12 @@ build:
 	make -s -C go run
 	make -s -C v run
 
-table:
+benchmark_table:
 	echo '```'
 	make -s build | sort -t "|" -k3,3 -k6,6 | awk -F'|' 'BEGIN {A=""} { if ($$3!=A && A!="") {print ""}; A=$$3; print $$0 }' | column -e -s "|" -t -n
 	echo '```'
 
+compiler_version_table:
 	echo '```'
 	rustc --version
 	gcc --version | head -n 1
@@ -22,5 +23,13 @@ table:
 	v version
 	echo '```'
 
-test:
-	echo -n "zig " && zig version
+readme:
+	cat README.md.header
+	make benchmark_table
+	make compiler_version_table
+	echo "Benchmarks are run on:"
+	echo '```'
+	screenfetch -E -nN -d'-wm;-res;-de;-uptime;-pkgs;-shell;-host' || true
+	echo " Kernel mitigated CPU bugs:"
+	cat /proc/cpuinfo| grep bugs | head -n 1
+	echo '```'
