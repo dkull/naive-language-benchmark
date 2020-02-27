@@ -2,7 +2,7 @@
 
 Comparing naive implementations in compiled languages. These tests are mostly for seeing the optimization capabilities of the compilers behind the language.
 
-All the examples are written by me in good faith. I am most proficient in Rust. The others are written based on official language docs.
+All the benchmarks are written by me in good faith. I am most proficient in Rust. The others are written based on official language docs.
 The first language gets an original implementation(might be based on RosettaCode, Wikipedia, etc.) and the following implementations
 are based on that implementation as closely as possible. Getting a benchmark to work in the following languages is mostly just satisfying 
 the compiler (type) errors, no other language specific optimizations are done.
