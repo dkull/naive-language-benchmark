@@ -27,22 +27,22 @@ make -s readme
 ```
 
 ```
-zig    zig   adler32      c8be4a0c     887            0:00.88 
+rustc  rust  adler32      c8be4a0c     N/A            0:00.87 
+zig    zig   adler32      c8be4a0c     885            0:00.88 
+gccgo  go    adler32      c8be4a0c     N/A            0:00.92 
 v      v     adler32      0xc8be4a0c                  0:00.92 
-rustc  rust  adler32      c8be4a0c     N/A            0:00.93 
-go     go    adler32      c8be4a0c     N/A            0:00.97 
+go     go    adler32      c8be4a0c     N/A            0:00.94 
 gcc    c     adler32      c8be4a0c     N/A            0:00.99 
-gccgo  go    adler32      c8be4a0c     N/A            0:01.02 
 
-zig    zig   millerrabin  183065       N/A            0:00.93 
-rustc  rust  millerrabin  183065       n/a            0:01.05 
+zig    zig   millerrabin  183065       N/A            0:00.90 
+rustc  rust  millerrabin  183065       n/a            0:00.95 
 
-rustc  rust  rc4          31875526832  492            0:00.49 
-gcc    c     rc4          31875526832                 0:00.55 
-gccgo  go    rc4          31875526832  666.719704ms   0:00.67 
-zig    zig   rc4          31875526832  683            0:00.68 
-go     go    rc4          31875526832  1.588962454s   0:01.59 
-v      v     rc4          31875526832                 0:01.91 
+rustc  rust  rc4          31875526832  473            0:00.47 
+gcc    c     rc4          31875526832                 0:00.51 
+gccgo  go    rc4          31875526832  699.595128ms   0:00.71 
+zig    zig   rc4          31875526832  719            0:00.71 
+go     go    rc4          31875526832  1.692655118s   0:01.69 
+v      v     rc4          31875526832                 0:01.94 
 ```
 ```
 rustc 1.43.0-nightly (5e7af4669 2020-02-16)
@@ -57,7 +57,6 @@ Benchmarks are run on:
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-40-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- GPU: GeForce GTX 1080 Ti, GeForce GTX 1080 Ti
- RAM: 7188MiB / 32055MiB
+ RAM: 7269MiB / 32055MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```

@@ -29,7 +29,7 @@ readme:
 	make compiler_version_table
 	echo "Benchmarks are run on:"
 	echo '```'
-	screenfetch -E -nN -d'-wm;-res;-de;-uptime;-pkgs;-shell;-host' || true
+	screenfetch -E -nN -d'-wm;-res;-de;-uptime;-pkgs;-shell;-host;-gpu' || true
 	echo -n " Mitigated CPU bugs: "
 	cat /proc/cpuinfo| grep bugs | head -n 1 | cut -d: -f 2
 	echo '```'
