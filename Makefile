@@ -10,7 +10,7 @@ build:
 
 table:
 	echo '```'
-	make -s build | sort -t "|" -k3,3 -k6,6 |column -s "|" -t -n
+	make -s build | sort -t "|" -k3,3 -k6,6 | awk -F'|' 'BEGIN {A=""} { if ($$3!=A && A!="") {print ""}; A=$$3; print $$0 }' | column -e -s "|" -t -n
 	echo '```'
 
 	echo '```'

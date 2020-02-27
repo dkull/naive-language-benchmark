@@ -1,21 +1,48 @@
 # naive-language-benchmark
-Comparing naive implementations in compiled languages
+
+Comparing naive implementations in compiled languages. These tests are mostly for seeing the optimization capabilities of the compilers behind the language.
+
+All the examples are written by me in good faith. I am most proficient in Rust. The others are written based on official language docs.
+The first language gets an original implementation(might be based on RosettaCode, Wikipedia, etc.) and the following implementations
+are based on that implementation as closely as possible. Getting an example to work is mostly just satisfying the compiler (type) errors, no other language
+specific optimizations are done.
+
+Pull requests are welcome to point blatantly slow aspects(eg. "that type of cast is slow in language X", "that compiler option makes it slow/fast"). Minor improvements
+are not the point, any speedup due to a compiler flag or tweaking something obvious/simple should provide a very noticeable speed improvement.
+All language have to use a static set of compiler flags for that language - no benchmark specific flags.
+
+Compiler flags are selected naively on the basis of "optimize everything!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
+
+Run:
+```
+make -s table
+```
 
 ```
-gcc    c     rc4  127500317644                 0:01.56 
-rustc  rust  rc4  127500317644  1685           0:01.68 
-zig    zig   rc4  127500317644  2097           0:02.09 
-gccgo  go    rc4  127500317644  2.337392472s   0:02.34 
-go     go    rc4  127500317644  4.596556485s   0:04.59 
-v      v     rc4  127500317644                 0:06.81 
+rustc  rust  adler32      c8be4a0c     N/A            0:00.71 
+zig    zig   adler32      c8be4a0c     714            0:00.71 
+gccgo  go    adler32      c8be4a0c     N/A            0:00.85 
+go     go    adler32      c8be4a0c     N/A            0:00.85 
+v      v     adler32      0xc8be4a0c                  0:00.85 
+gcc    c     adler32      c8be4a0c     N/A            0:00.93 
+
+zig    zig   millerrabin  183065       N/A            0:00.75 
+rustc  zig   millerrabin  183065       n/a            0:00.79 
+
+gcc    c     rc4          31875526832                 0:00.38 
+rustc  rust  rc4          31875526832  423            0:00.42 
+zig    zig   rc4          31875526832  525            0:00.52 
+gccgo  go    rc4          31875526832  586.201465ms   0:00.59 
+go     go    rc4          31875526832  1.28039327s    0:01.28 
+v      v     rc4          31875526832                 0:01.70 
 ```
 ```
 rustc 1.43.0-nightly (5e7af4669 2020-02-16)
 gcc (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-zig 0.5.0+652efe38b
-go version go1.14rc1 linux/amd64
+zig 0.5.0+a55e53639
+go version go1.14 linux/amd64
 gccgo (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-V 0.1.25 2ea2fed
+V 0.1.25 bc3d1ea
 ```
 
 Benchmarks are run on:
