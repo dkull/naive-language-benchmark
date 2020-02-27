@@ -20,22 +20,22 @@ make -s table
 ```
 
 ```
-rustc  rust  adler32      c8be4a0c     N/A            0:00.71 
-zig    zig   adler32      c8be4a0c     714            0:00.71 
-gccgo  go    adler32      c8be4a0c     N/A            0:00.85 
-go     go    adler32      c8be4a0c     N/A            0:00.85 
-v      v     adler32      0xc8be4a0c                  0:00.85 
-gcc    c     adler32      c8be4a0c     N/A            0:00.93 
+rustc  rust   adler32      c8be4a0c     N/A            0:00.71 
+zig    zig    adler32      c8be4a0c     714            0:00.71 
+gccgo  go     adler32      c8be4a0c     N/A            0:00.85 
+go     go     adler32      c8be4a0c     N/A            0:00.85 
+v      v      adler32      0xc8be4a0c                  0:00.85 
+gcc    c      adler32      c8be4a0c     N/A            0:00.93 
 
-zig    zig   millerrabin  183065       N/A            0:00.75 
-rustc  zig   millerrabin  183065       n/a            0:00.79 
+zig    zig    millerrabin  183065       N/A            0:00.75 
+rustc  rust   millerrabin  183065       n/a            0:00.79 
 
-gcc    c     rc4          31875526832                 0:00.38 
-rustc  rust  rc4          31875526832  423            0:00.42 
-zig    zig   rc4          31875526832  525            0:00.52 
-gccgo  go    rc4          31875526832  586.201465ms   0:00.59 
-go     go    rc4          31875526832  1.28039327s    0:01.28 
-v      v     rc4          31875526832                 0:01.70 
+gcc    c      rc4          31875526832                 0:00.38 
+rustc  rust   rc4          31875526832  423            0:00.42 
+zig    zig    rc4          31875526832  525            0:00.52 
+gccgo  go     rc4          31875526832  586.201465ms   0:00.59 
+go     go     rc4          31875526832  1.28039327s    0:01.28 
+v      v      rc4          31875526832                 0:01.70 
 ```
 ```
 rustc 1.43.0-nightly (5e7af4669 2020-02-16)
