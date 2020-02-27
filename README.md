@@ -9,10 +9,10 @@ the compiler (type) errors, no other language specific optimizations are done.
 
 Pull requests are welcome to point out blatantly slow aspects(eg. "that type of cast is slow in language X", "that compiler option makes it slow/fast"). Minor improvements
 are not the point, any speedup due to a compiler flag or tweaking something obvious/simple should provide a noticeable speed improvement. 
-All language have to use a static set of compiler flags for that language - no benchmark specific flags.
-Any change should be "trivial" (obious to a total newbie to the language).
+All languages have to use a static set of compiler flags specific for that language - no benchmark specific flags.
+Any change should be "trivial" (obious to a newbie to the language).
 
-Compiler flags are selected naively on the basis of "optimize everything!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
+Compiler flags are chosen naively on the basis of "optimize everything - simply!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
 
 Run:
 ```
