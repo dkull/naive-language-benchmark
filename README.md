@@ -4,12 +4,13 @@ Comparing naive implementations in compiled languages. These tests are mostly fo
 
 All the examples are written by me in good faith. I am most proficient in Rust. The others are written based on official language docs.
 The first language gets an original implementation(might be based on RosettaCode, Wikipedia, etc.) and the following implementations
-are based on that implementation as closely as possible. Getting an example to work is mostly just satisfying the compiler (type) errors, no other language
-specific optimizations are done.
+are based on that implementation as closely as possible. Getting a benchmark to work in the following languages is mostly just satisfying 
+the compiler (type) errors, no other language specific optimizations are done.
 
-Pull requests are welcome to point blatantly slow aspects(eg. "that type of cast is slow in language X", "that compiler option makes it slow/fast"). Minor improvements
-are not the point, any speedup due to a compiler flag or tweaking something obvious/simple should provide a very noticeable speed improvement.
+Pull requests are welcome to point out blatantly slow aspects(eg. "that type of cast is slow in language X", "that compiler option makes it slow/fast"). Minor improvements
+are not the point, any speedup due to a compiler flag or tweaking something obvious/simple should provide a noticeable speed improvement. 
 All language have to use a static set of compiler flags for that language - no benchmark specific flags.
+Any change should be "trivial" (obious to a total newbie to the language).
 
 Compiler flags are selected naively on the basis of "optimize everything!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
 
