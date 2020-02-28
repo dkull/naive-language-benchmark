@@ -2,8 +2,8 @@
 struct RC4 {
     s []byte
     mut:
-        i u64
-        j u64
+        i u32
+        j u32
 }
 
 fn new_rc4(key string) RC4 {
@@ -49,6 +49,7 @@ fn bench() {
     mut sum := u64(0)
     for i := 0; i < 250000000; i++ {
         sum += u64(rc4.get_byte())
+
     }
     println("|v|rc4|" + sum.str() + "||")
 }

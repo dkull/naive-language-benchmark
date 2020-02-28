@@ -1,5 +1,9 @@
 SHELL := /bin/bash
 
+ifndef VERBOSE
+.SILENT:
+endif
+
 build:
 	#echo "comp|lang|bench|result|stdout|00time"
 	make -s -C rust run

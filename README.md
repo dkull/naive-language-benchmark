@@ -27,23 +27,26 @@ make -s readme
 ```
 
 ```
+
 rustc  rust  adler32      c8be4a0c     N/A            0:00.70 
-zig    zig   adler32      c8be4a0c     714            0:00.71 
+zig    zig   adler32      c8be4a0c     713            0:00.71 
+v      v     adler32      0xc8be4a0c                  0:00.84 
 gccgo  go    adler32      c8be4a0c     N/A            0:00.85 
 go     go    adler32      c8be4a0c     N/A            0:00.85 
-v      v     adler32      0xc8be4a0c                  0:00.85 
 gcc    c     adler32      c8be4a0c     N/A            0:00.93 
 
+gccgo  go    millerrabin  183065       N/A            0:00.74 
 v      v     millerrabin  183065       N/A            0:00.75 
-zig    zig   millerrabin  183065       N/A            0:00.76 
+zig    zig   millerrabin  183065       N/A            0:00.75 
 rustc  rust  millerrabin  183065       n/a            0:00.79 
+go     go    millerrabin  183065       N/A            0:00.80 
 
 gcc    c     rc4          31875526832                 0:00.39 
-rustc  rust  rc4          31875526832  421            0:00.42 
-zig    zig   rc4          31875526832  533            0:00.53 
-gccgo  go    rc4          31875526832  584.648397ms   0:00.59 
-go     go    rc4          31875526832  1.271172727s   0:01.27 
-v      v     rc4          31875526832                 0:01.71 
+rustc  rust  rc4          31875526832  422            0:00.42 
+zig    zig   rc4          31875526832  524            0:00.52 
+gccgo  go    rc4          31875526832  583.278395ms   0:00.59 
+go     go    rc4          31875526832  1.273829306s   0:01.27 
+v      v     rc4          31875526832                 0:01.76 
 ```
 ```
 rustc 1.43.0-nightly (5e7af4669 2020-02-16)
@@ -51,13 +54,13 @@ gcc (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
 zig 0.5.0+a55e53639
 go version go1.14 linux/amd64
 gccgo (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-V 0.1.25 bc3d1ea
+V 0.1.25 8720536
 ```
 Benchmarks are run on:
 ```
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-40-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 9700MiB / 32055MiB
+ RAM: 7524MiB / 32055MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```
