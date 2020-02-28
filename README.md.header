@@ -14,14 +14,14 @@ Any change should be "trivial" (obious to a newbie to the language).
 
 Compiler flags are chosen naively on the basis of "optimize everything - simply!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
 
-Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; screenfetch (optional)
+Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; screenfetch (optional for README.md)
 
 Run for just the benchmark tables:
 ```
 make -s benchmark_table
 ```
 
-Run to generate the contents of this README.md file:
+Run to generate this README.md:
 ```
 make -s readme
 ```

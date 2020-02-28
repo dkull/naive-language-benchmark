@@ -1,17 +1,21 @@
 SHELL := /bin/bash
 
-build:
-	#zig build-lib --release-fast --single-threaded --strip -dynamic main.zig
-	#zig build-lib --release-fast --single-threaded --strip main.zig
-	zig build-exe --release-fast --single-threaded --strip -mcpu skylake rc4.zig
-	zig build-exe --release-fast --single-threaded --strip -mcpu skylake adler32.zig
-	zig build-exe --release-fast --single-threaded --strip -mcpu skylake millerrabin.zig
+# !!! Update this when adding new
+EXECS = rc4 adler32 millerrabin
 
-run:
-	make build
-	sed 's/^/zig/' <(/usr/bin/time -f "%E" ./rc4 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/zig/' <(/usr/bin/time -f "%E" ./adler32 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/zig/' <(/usr/bin/time -f "%E" ./millerrabin 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
+.PHONY: build run all
+
+$(EXECS): %: %.zig
+	zig build-exe --release-fast --single-threaded --strip -mcpu skylake $<
+
+all: $(EXECS)
+
+clean:
+	rm $(EXECS)
+
+run: $(EXECS)
+	for exec in $(EXECS); do \
+		sed 's/^/zig/' <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
+		echo ""; \
+	done
+

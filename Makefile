@@ -6,15 +6,23 @@ endif
 
 build:
 	#echo "comp|lang|bench|result|stdout|00time"
-	make -s -C rust run
-	make -s -C c run
-	make -s -C zig run 
-	make -s -C go run
-	make -s -C v run
+	make -s -C rust build
+	make -s -C c build
+	make -s -C zig build
+	make -s -C go build
+	make -s -C v build
+
+run:
+	#echo "comp|lang|bench|result|stdout|00time"
+	make -s -C rust run TIME_FORMAT="%E"
+	make -s -C c run TIME_FORMAT="%E"
+	make -s -C zig run TIME_FORMAT="%E"
+	make -s -C go run TIME_FORMAT="%E"
+	make -s -C v run TIME_FORMAT="%E"
 
 benchmark_table:
 	echo '```'
-	make -s build | sort -t "|" -k3,3 -k6,6 | awk -F'|' 'BEGIN {A=""} { if ($$3!=A && A!="") {print ""}; A=$$3; print $$0 }' | column -e -s "|" -t -n
+	make -s run | sort -t "|" -k3,3 -k6,6 | awk -F'|' 'BEGIN {A=""} { if ($$3!=A && A!="") {print ""}; A=$$3; print $$0 }' | column -e -s "|" -t -n
 	echo '```'
 
 compiler_version_table:
@@ -26,6 +34,13 @@ compiler_version_table:
 	gccgo --version | head -n 1
 	v version
 	echo '```'
+
+clean:
+	make -s -C rust clean
+	make -s -C c clean
+	make -s -C zig clean
+	make -s -C go clean
+	make -s -C v clean
 
 readme:
 	cat README.md.header

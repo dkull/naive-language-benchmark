@@ -14,39 +14,38 @@ Any change should be "trivial" (obious to a newbie to the language).
 
 Compiler flags are chosen naively on the basis of "optimize everything - simply!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
 
-Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; screenfetch (optional)
+Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; screenfetch (optional for README.md)
 
 Run for just the benchmark tables:
 ```
 make -s benchmark_table
 ```
 
-Run to generate the contents of this README.md file:
+Run to generate this README.md:
 ```
 make -s readme
 ```
 
 ```
+rustc  rust  adler32      c8be4a0c     N/A   0:00.70
+gcc    v     adler32      c8be4a0c     N/A   0:00.84
+zig    zig   adler32      c8be4a0c     N/A   0:00.84
+gcc    go    adler32      c8be4a0c     N/A   0:00.85
+go     go    adler32      c8be4a0c     N/A   0:00.85
+gcc    c     adler32      c8be4a0c     N/A   0:00.93
 
-rustc  rust  adler32      c8be4a0c     N/A            0:00.70 
-zig    zig   adler32      c8be4a0c     713            0:00.71 
-v      v     adler32      0xc8be4a0c                  0:00.84 
-gccgo  go    adler32      c8be4a0c     N/A            0:00.85 
-go     go    adler32      c8be4a0c     N/A            0:00.85 
-gcc    c     adler32      c8be4a0c     N/A            0:00.93 
+gcc    go    millerrabin  183065       N/A   0:00.74
+gcc    v     millerrabin  183065       N/A   0:00.75
+zig    zig   millerrabin  183065       N/A   0:00.75
+go     go    millerrabin  183065       N/A   0:00.79
+rustc  rust  millerrabin  183065       N/A   0:00.79
 
-gccgo  go    millerrabin  183065       N/A            0:00.74 
-v      v     millerrabin  183065       N/A            0:00.75 
-zig    zig   millerrabin  183065       N/A            0:00.75 
-rustc  rust  millerrabin  183065       n/a            0:00.79 
-go     go    millerrabin  183065       N/A            0:00.80 
-
-gcc    c     rc4          31875526832                 0:00.39 
-rustc  rust  rc4          31875526832  422            0:00.42 
-zig    zig   rc4          31875526832  524            0:00.52 
-gccgo  go    rc4          31875526832  583.278395ms   0:00.59 
-go     go    rc4          31875526832  1.273829306s   0:01.27 
-v      v     rc4          31875526832                 0:01.76 
+rustc  rust  rc4          31875526832  426   0:00.42
+gcc    c     rc4          31875526832  520   0:00.52
+zig    zig   rc4          31875526832  524   0:00.52
+gcc    go    rc4          31875526832  583   0:00.59
+go     go    rc4          31875526832  1146  0:01.15
+gcc    v     rc4          31875526832  1769  0:01.76
 ```
 ```
 rustc 1.43.0-nightly (5e7af4669 2020-02-16)
@@ -61,6 +60,6 @@ Benchmarks are run on:
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-40-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 7524MiB / 32055MiB
+ RAM: 8019MiB / 32055MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```

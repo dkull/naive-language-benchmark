@@ -1,12 +1,21 @@
 SHELL := /bin/bash
 
-build:
-	gcc -fomit-frame-pointer -Ofast -mtune=skylake -march=native rc4.c -o rc4
-	gcc -fomit-frame-pointer -Ofast -mtune=skylake -march=native adler32.c -o adler32
+# !!! Update this when adding new
+EXECS = rc4 adler32 # millerrabin
 
-run:
-	make build
-	sed 's/^/gcc/' <(/usr/bin/time -f "%E" ./rc4 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/gcc/' <(/usr/bin/time -f "%E" ./adler32 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
+.PHONY: build run all
+
+$(EXECS): %: %.c
+	gcc -fomit-frame-pointer -Ofast -march=skylake $< -o $@
+
+all: $(EXECS)
+
+clean:
+	rm $(EXECS)
+
+run: $(EXECS)
+	for exec in $(EXECS); do \
+		sed 's/^/gcc/' <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
+		echo ""; \
+	done
+

@@ -1,29 +1,24 @@
 SHELL := /bin/bash
 
-build:
-	go build -o rc4_go rc4.go
-	go build -compiler gccgo -gccgoflags '-Ofast -flto -march=native' -o rc4_gcc rc4.go
+# !!! Update this when adding new
+EXECS = rc4 adler32 millerrabin
+RUNNABLES = rc4_go rc4_gcc adler32_go adler32_gcc millerrabin_go millerrabin_gcc
 
-	go build -o adler32_go adler32.go
-	go build -compiler gccgo -gccgoflags '-Ofast -flto -march=native' -o adler32_gcc adler32.go
+.PHONY: build run all
 
-	go build -o millerrabin_go millerrabin.go
-	go build -compiler gccgo -gccgoflags '-Ofast -flto -march=native' -o millerrabin_gcc millerrabin.go
+$(EXECS): %: %.go
+	go build -o $@_go $<
+	go build -compiler gccgo -gccgoflags '-Ofast -flto -march=skylake' -o $@_gcc $<
 
-run:
-	make build
-	sed 's/^/go/' <(/usr/bin/time -f "%E" ./rc4_go 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/gccgo/' <(/usr/bin/time -f "%E"  ./rc4_gcc 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/go/' <(/usr/bin/time -f "%E" ./adler32_go 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/gccgo/' <(/usr/bin/time -f "%E"  ./adler32_gcc 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
+all: $(EXECS)
 
-	echo ""
-	sed 's/^/go/' <(/usr/bin/time -f "%E" ./millerrabin_go 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
-	sed 's/^/gccgo/' <(/usr/bin/time -f "%E"  ./millerrabin_gcc 2>&1 | head -n 2 | tr '\n' ' ')
-	echo ""
+clean:
+	rm $(RUNNABLES)
+
+run: $(EXECS)
+	for exec in $(RUNNABLES); do \
+		export COMPILER=`echo $$exec | cut -d '_' -f 2-`; \
+		sed "s/^/$$COMPILER/" <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
+		echo; \
+	done
 
