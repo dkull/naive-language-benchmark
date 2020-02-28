@@ -1,3 +1,4 @@
+import time
 
 struct RC4 {
     s []byte
@@ -43,6 +44,8 @@ fn (rc4 mut RC4) get_byte() byte {
 }
 
 fn bench() {
+    begin := time.ticks()
+
     key := r'Keyfobsrulethebestofall'
     mut rc4 := new_rc4(key)
 
@@ -51,7 +54,8 @@ fn bench() {
         sum += u64(rc4.get_byte())
 
     }
-    println("|v|rc4|" + sum.str() + "||")
+    timedelta := time.ticks() - begin
+    println("|v|rc4|" + sum.str() + "|$timedelta|")
 }
 
 fn main() {

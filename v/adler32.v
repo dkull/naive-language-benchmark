@@ -7,5 +7,5 @@ fn main() {
         b = (b + a) % mod_adler
     }
     result := b << 16 | a
-    println("|v|adler32|" + result.hex() + "||")
+    println("|v|adler32|" + result.hex()[2..] + "|N/A|")
 }

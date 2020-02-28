@@ -59,5 +59,5 @@ pub fn main() {
             prime_count += 1;
         }
     }
-    println!("|rust|millerrabin|{}|{}|", prime_count, "n/a");
+    println!("|rust|millerrabin|{}|{}|", prime_count, "N/A");
 }

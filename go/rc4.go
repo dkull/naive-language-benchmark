@@ -58,7 +58,8 @@ func bench() {
 		sum += uint64(rc4.getByte())
 	}
 
-	delta := time.Since(start)
+	// gccgo does not suport Milliseconds()
+	delta := int(time.Since(start).Nanoseconds() / 1000000)
 	fmt.Printf("|go|rc4|%d|%+v|\n", sum, delta)
 }
 

@@ -1,4 +1,29 @@
 #include <stdio.h>
+#include <time.h>
+#include <sys/time.h>
+#include <stdint.h>
+#include <unistd.h>
+
+// the logic to measure time starts here
+// from https://stackoverflow.com/questions/361363/how-to-measure-time-in-milliseconds-using-ansi-c
+// by Alexander Saprykin
+
+uint64_t get_posix_clock_time ()
+{
+    struct timespec ts;
+#ifdef _SC_MONOTONIC_CLOCK
+    if (sysconf (_SC_MONOTONIC_CLOCK) > 0) {
+        /* A monotonic clock presents */
+    }
+#endif
+
+    if (clock_gettime (CLOCK_MONOTONIC, &ts) == 0)
+        return (uint64_t) (ts.tv_sec * 1000000 + ts.tv_nsec / 1000) / 1000;
+    else
+        return 0;
+}
+
+// the real benchmark starts here
 
 struct RC4 {
     unsigned char s[256];
@@ -37,6 +62,8 @@ int rc4_get_byte(struct RC4 *rc4) {
 }
 
 void bench() {
+    uint64_t begin = get_posix_clock_time();
+
     unsigned char key[] = "Keyfobsrulethebestofall";
     struct RC4* rc4 = rc4_new(key, 23);
 
@@ -44,7 +71,8 @@ void bench() {
     for (int i = 0; i < (long long) 250000000; i++) {
         sum += (long long) rc4_get_byte(rc4);
     }
-    printf("|c|rc4|%lli||\n", sum);
+    uint64_t timedelta = get_posix_clock_time() - begin;
+    printf("|c|rc4|%lli|%li|\n", sum, timedelta);
 }
 
 int main() {
