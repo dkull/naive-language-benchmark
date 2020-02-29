@@ -37,29 +37,29 @@ gcc    c     adler32      c8be4a0c     N/A   0:00.93
 gcc    go    millerrabin  183065       N/A   0:00.74
 gcc    v     millerrabin  183065       N/A   0:00.75
 zig    zig   millerrabin  183065       N/A   0:00.75
-go     go    millerrabin  183065       N/A   0:00.79
 rustc  rust  millerrabin  183065       N/A   0:00.79
+go     go    millerrabin  183065       N/A   0:00.80
 
-rustc  rust  rc4          31875526832  426   0:00.42
-gcc    c     rc4          31875526832  520   0:00.52
-zig    zig   rc4          31875526832  524   0:00.52
+rustc  rust  rc4          31875526832  428   0:00.42
+gcc    c     rc4          31875526832  523   0:00.52
+zig    zig   rc4          31875526832  523   0:00.52
 gcc    go    rc4          31875526832  583   0:00.59
-go     go    rc4          31875526832  1146  0:01.15
-gcc    v     rc4          31875526832  1769  0:01.76
+go     go    rc4          31875526832  1147  0:01.14
+gcc    v     rc4          31875526832  1771  0:01.77
 ```
 ```
-rustc 1.43.0-nightly (5e7af4669 2020-02-16)
+rustc 1.43.0-nightly (0eb878d2a 2020-02-28)
 gcc (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-zig 0.5.0+a55e53639
+zig 0.5.0+bee4007ec
 go version go1.14 linux/amd64
 gccgo (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-V 0.1.25 8720536
+V 0.1.25 6855c74
 ```
 Benchmarks are run on:
 ```
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-40-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 8019MiB / 32055MiB
+ RAM: 7406MiB / 32055MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```
