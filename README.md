@@ -40,26 +40,26 @@ zig    zig   millerrabin  183065       N/A   0:00.75
 rustc  rust  millerrabin  183065       N/A   0:00.79
 go     go    millerrabin  183065       N/A   0:00.80
 
-rustc  rust  rc4          31875526832  428   0:00.42
-gcc    c     rc4          31875526832  523   0:00.52
-zig    zig   rc4          31875526832  523   0:00.52
+rustc  rust  rc4          31875526832  422   0:00.42
+gcc    c     rc4          31875526832  522   0:00.52
+zig    zig   rc4          31875526832  525   0:00.52
 gcc    go    rc4          31875526832  583   0:00.59
-go     go    rc4          31875526832  1147  0:01.14
-gcc    v     rc4          31875526832  1771  0:01.77
+go     go    rc4          31875526832  1150  0:01.15
+gcc    v     rc4          31875526832  1770  0:01.77
 ```
 ```
-rustc 1.43.0-nightly (0eb878d2a 2020-02-28)
-gcc (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-zig 0.5.0+bee4007ec
+rustc 1.44.0-nightly (94d346360 2020-04-09)
+gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+zig 0.5.0+de9933761
 go version go1.14 linux/amd64
-gccgo (Ubuntu 8.3.0-6ubuntu1~18.04.1) 8.3.0
-V 0.1.25 6855c74
+gccgo (Ubuntu 8.3.0-26ubuntu1~18.04) 8.3.0
+V 0.1.26 83289d7.2df4998
 ```
 Benchmarks are run on:
 ```
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-40-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 7406MiB / 32055MiB
+ RAM: 3637MiB / 32055MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```

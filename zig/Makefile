@@ -6,7 +6,7 @@ EXECS = rc4 adler32 millerrabin
 .PHONY: build run all
 
 $(EXECS): %: %.zig
-	zig build-exe --release-fast --single-threaded --strip -mcpu skylake $<
+	zig build-exe --release-fast --single-threaded --strip -mcpu native $<
 
 all: $(EXECS)
 
