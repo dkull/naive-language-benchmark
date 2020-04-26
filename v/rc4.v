@@ -8,7 +8,7 @@ struct RC4 {
 }
 
 fn new_rc4(key string) RC4 {
-    mut data := [0].repeat(256)
+    mut data := [byte(0)].repeat(256)
 
     for i, _ in data {
         data[i] = i
