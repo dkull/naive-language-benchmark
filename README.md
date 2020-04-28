@@ -35,17 +35,17 @@ gcc    go    adler32      c8be4a0c     N/A   0:00.85
 go     go    adler32      c8be4a0c     N/A   0:00.85
 
 gcc    go    millerrabin  183065       N/A   0:00.74
-gcc    v     millerrabin  183065       N/A   0:00.76
+gcc    v     millerrabin  183065       N/A   0:00.75
 zig    zig   millerrabin  183065       N/A   0:00.76
 go     go    millerrabin  183065       N/A   0:00.80
-rustc  rust  millerrabin  183065       N/A   0:00.80
+rustc  rust  millerrabin  183065       N/A   0:00.81
 
 rustc  rust  rc4          31875526832  421   0:00.42
-gcc    v     rc4          31875526832  475   0:00.47
-gcc    c     rc4          31875526832  503   0:00.50
-zig    zig   rc4          31875526832  528   0:00.52
-gcc    go    rc4          31875526832  584   0:00.59
-go     go    rc4          31875526832  1147  0:01.14
+gcc    v     rc4          31875526832  474   0:00.47
+gcc    c     rc4          31875526832  513   0:00.51
+zig    zig   rc4          31875526832  524   0:00.52
+gcc    go    rc4          31875526832  583   0:00.59
+go     go    rc4          31875526832  1186  0:01.18
 ```
 ```
 rustc 1.44.0-nightly (94d346360 2020-04-09)
@@ -60,6 +60,6 @@ Benchmarks are run on:
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-46-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 12301MiB / 32054MiB
+ RAM: 12114MiB / 32054MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```
