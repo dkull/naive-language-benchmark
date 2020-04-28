@@ -6,7 +6,12 @@ EXECS = rc4 adler32 millerrabin
 .PHONY: build run all
 
 $(EXECS): %: %.v 
-	v -prod -cc gcc -cflags -flto -O3 -march=skylake $<
+	v -prod -cc gcc \
+		-cflags -Ofast \
+		-cflags -flto \
+		-cflags -march=skylake \
+		-cflags -fomit-frame-pointer \
+		$<
 
 all: $(EXECS)
 
