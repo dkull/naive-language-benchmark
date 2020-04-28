@@ -1,7 +1,7 @@
 const std = @import("std");
 const log = std.debug.warn;
 
-const MOD_ADLER: u16 = 65521;
+const MOD_ADLER: u32 = 65521;
 
 pub fn main() void {
     var a: u32 = 1;
