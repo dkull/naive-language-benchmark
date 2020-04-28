@@ -20,19 +20,21 @@ fn witness(n: u32, _s: u32, d: u32, a: u32) bool {
     var y: u64 = 0;
 
     var s = _s;
+    var is_witness: bool = true;
     while (s > 0) {
         // powmod
         y = (x * x) % n;
         if (y == 1 and x != 1 and x != n - 1) {
-            return false;
+            is_witness = false;
+            break;
         }
         x = y;
         s -= 1;
     }
     if (y != 1) {
-        return false;
+        is_witness = false;
     }
-    return true;
+    return is_witness;
 }
 
 fn is_rabin_miller_prime(n: u32, witnesses: [7]u32) bool {
