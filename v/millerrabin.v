@@ -1,11 +1,8 @@
-fn powmod(_base u32, _pow u32, mod u32) u32 {
-    mut result := u64(1)
-    mut base := u64(_base)
-    mut pow := u64(_pow)
-    for {
-        if !(pow > 0) {
-            break
-        }
+fn powmod(_base int, _pow int, mod int) u64 {
+    mut result := 1
+    mut base := u64(_base) // gets squared
+    mut pow := _pow
+    for pow > 0 {
         if pow & 1 == 1 {
             result = (result * base) % mod
         }
@@ -15,15 +12,12 @@ fn powmod(_base u32, _pow u32, mod u32) u32 {
     return result
 }
 
-fn witness(n u32, _s u32, d u32, a u32) bool {
-    mut x := u64(powmod(a, d, n))
-    mut y := u64(0)
+fn witness(n int, _s int, d int, a int) bool {
+    mut x := powmod(a, d, n)
+    mut y := u64(0) //is squaring of x[u64]
 
     mut s := _s
-    for {
-        if !(s > 0) {
-            break
-        }
+    for s > 0 {
         // powmod
         y = (x * x) % n
         if y == 1 && x != 1 && x != n - 1 {
@@ -38,14 +32,11 @@ fn witness(n u32, _s u32, d u32, a u32) bool {
     return true
 }
 
-fn is_rabin_miller_prime(n u32, witnesses []u32) bool {
+fn is_rabin_miller_prime(n int, witnesses []int) bool {
     mut d := n / 2
-    mut s := u32(1)
+    mut s := 1
 
-    for {
-        if d & 1 == 1 {
-            break
-        }
+    for d & 1 != 1 {
         d /= 2
         s++
     }
@@ -60,17 +51,12 @@ fn is_rabin_miller_prime(n u32, witnesses []u32) bool {
 }
 
 fn main() {
-    witnesses := [u32(2), 3, 5, 7, 11, 13, 17]
+    witnesses := [2, 3, 5, 7, 11, 13, 17]
     mut prime_count := 0
-    mut i := u32(3)
-    for {
-        if i == 2500000 {
-            break
-        }
+    for i := u32(3); i < 2500000; i++ {
         if is_rabin_miller_prime(i, witnesses) {
             prime_count++
         }
-        i++
     }
     println("|v|millerrabin|" + prime_count.str() + "|N/A|")
 }
