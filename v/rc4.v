@@ -1,8 +1,8 @@
 import time
 
 struct RC4 {
-    s []byte
     mut:
+        s []byte
         i u32
         j u32
 }

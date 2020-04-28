@@ -59,7 +59,7 @@ fn is_rabin_miller_prime(n u32, witnesses []u32) bool {
     return true
 }
 
-pub fn main() {
+fn main() {
     witnesses := [u32(2), 3, 5, 7, 11, 13, 17]
     mut prime_count := 0
     mut i := u32(3)
@@ -67,7 +67,7 @@ pub fn main() {
         if i == 2500000 {
             break
         }
-        if (is_rabin_miller_prime(i, witnesses)) {
+        if is_rabin_miller_prime(i, witnesses) {
             prime_count++
         }
         i++
