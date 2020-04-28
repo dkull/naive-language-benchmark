@@ -4,6 +4,8 @@ ifndef VERBOSE
 .SILENT:
 endif
 
+export CC=gcc
+
 build:
 	#echo "comp|lang|bench|result|stdout|00time"
 	make -s -C rust build
@@ -28,7 +30,7 @@ benchmark_table:
 compiler_version_table:
 	echo '```'
 	rustc --version
-	gcc --version | head -n 1
+	$(CC) --version | head -n 1
 	echo -n "zig " && zig version
 	go version
 	gccgo --version | head -n 1

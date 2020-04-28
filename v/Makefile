@@ -6,7 +6,7 @@ EXECS = rc4 adler32 millerrabin
 .PHONY: build run all
 
 $(EXECS): %: %.v 
-	v -prod -cc gcc \
+	v -prod -cc $(CC) \
 		-cflags -Ofast \
 		-cflags -flto \
 		-cflags -march=skylake \
@@ -20,7 +20,7 @@ clean:
 
 run: $(EXECS)
 	for exec in $(EXECS); do \
-		sed 's/^/gcc/' <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
+		sed 's/^/$(CC)/' <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
 		echo ""; \
 	done
 
