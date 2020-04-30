@@ -8,7 +8,7 @@ RUNNABLES = rc4_go rc4_gcc adler32_go adler32_gcc millerrabin_go millerrabin_gcc
 
 $(EXECS): %: %.go
 	go build -o $@_go $<
-	go build -compiler gccgo -gccgoflags '-Ofast -flto -march=skylake -fomit-frame-pointer' -o $@_gcc $<
+	go build -compiler gccgo -gccgoflags '-Ofast -flto -march=native -fomit-frame-pointer' -o $@_gcc $<
 
 all: $(EXECS)
 

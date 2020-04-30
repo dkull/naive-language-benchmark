@@ -6,10 +6,11 @@ EXECS = rc4 adler32 # millerrabin
 .PHONY: build run all
 
 $(EXECS): %: %.c
+	# -flto - slower
+	# -fomit-frame-pointer - slower
+	# -funroll-loops - slower
 	$(CC) -Ofast \
-		-flto \
-		-march=skylake \
-		-fomit-frame-pointer \
+		-march=native \
 		$< -o $@
 
 all: $(EXECS)
