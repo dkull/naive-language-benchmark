@@ -29,23 +29,23 @@ make -s readme
 ```
 gcc    c     adler32      c8be4a0c     N/A   0:00.59
 gcc    v     adler32      c8be4a0c     N/A   0:00.59
-rustc  rust  adler32      c8be4a0c     N/A   0:00.70
+rustc  rust  adler32      c8be4a0c     N/A   0:00.71
 zig    zig   adler32      c8be4a0c     N/A   0:00.84
 gcc    go    adler32      c8be4a0c     N/A   0:00.85
 go     go    adler32      c8be4a0c     N/A   0:00.85
 
 gcc    v     millerrabin  183065       N/A   0:00.75
 zig    zig   millerrabin  183065       N/A   0:00.76
-go     go    millerrabin  183065       N/A   0:00.78
-gcc    go    millerrabin  183065       N/A   0:00.80
+gcc    go    millerrabin  183065       N/A   0:00.77
+go     go    millerrabin  183065       N/A   0:00.79
 rustc  rust  millerrabin  183065       N/A   0:00.80
 
-rustc  rust  rc4          31875526832  422   0:00.42
-gcc    v     rc4          31875526832  476   0:00.47
-gcc    c     rc4          31875526832  488   0:00.48
-zig    zig   rc4          31875526832  526   0:00.52
-gcc    go    rc4          31875526832  593   0:00.64
-go     go    rc4          31875526832  1146  0:01.14
+rustc  rust  rc4          31875526832  421   0:00.42
+gcc    v     rc4          31875526832  480   0:00.48
+gcc    c     rc4          31875526832  512   0:00.51
+zig    zig   rc4          31875526832  524   0:00.52
+gcc    go    rc4          31875526832  592   0:00.60
+go     go    rc4          31875526832  1157  0:01.15
 ```
 ```
 rustc 1.44.0-nightly (b2e36e6c2 2020-04-22)
@@ -60,6 +60,6 @@ Benchmarks are run on:
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-46-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 11901MiB / 32054MiB
+ RAM: 11980MiB / 32054MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```

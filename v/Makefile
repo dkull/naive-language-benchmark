@@ -6,7 +6,7 @@ EXECS = rc4 adler32 millerrabin
 .PHONY: build run all
 
 $(EXECS): %: %.v 
-	# -prod excludes intrinsics etc
+	# -prod == -flto and -O3
 	v -cc $(CC) \
 		-cflags -flto \
 		-cflags -Ofast \

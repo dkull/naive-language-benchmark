@@ -11,6 +11,7 @@ $(EXECS): %: %.c
 	# -funroll-loops - slower
 	$(CC) -Ofast \
 		-march=native \
+		-flto \
 		$< -o $@
 
 all: $(EXECS)
