@@ -3,14 +3,13 @@
 Comparing naive implementations in compiled languages. The goal is to compare the optimization capabilities of the compilers behind the languages.
 
 All the benchmarks are written by me in good faith. I don't use any of these languages daily, though I have written something non-trivial in each of them at some point in time.
-For a new test a language is subjectively chosen to get an original implementation(might be based on RosettaCode, Wikipedia, etc.). The following languages will try to mimic the structure of the original one as closely as possible. Getting a the follow-up languages to run is mostly just satisfying 
-the compiler errors and playing around with casts.
+A new benchmark starts out as an implementation in one language. The following languages will try to mimic the structure of the original one as closely as possible. Getting the follow-up languages to run is mostly just satisfying the compiler errors and playing around with casts/types. Some testing of different integer types is done for performance.
 
-All languages use a static set of compiler flags specific for that language - no benchmark specific flags.
+Each language will get a custom set of compiler flags - no benchmark specific flags. Flags described in the compilers '--help' are priority and acceptable.
 
-Compiler flags are chosen on the basis of "optimize everything - simply!", some trivial A/B testing is done. Some testing of different integer types is done.
+Compiler flags are chosen on the basis of "optimize everything - simply!". Usually something like '-release -Ofast -flto -march=native -boundscheck=off' is used. Some A/B testing is done when choosing the subset.
 
-Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; ldc2 screenfetch (optional for README.md)
+Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; dmd; screenfetch (optional for README.md)
 
 Run for just the benchmark tables:
 ```
