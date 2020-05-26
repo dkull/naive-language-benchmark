@@ -13,6 +13,7 @@ build:
 	make -s -C zig build
 	make -s -C go build
 	make -s -C v build
+	make -s -C d build
 
 run:
 	#echo "comp|lang|bench|result|stdout|00time"
@@ -21,6 +22,7 @@ run:
 	make -s -C zig run TIME_FORMAT="%E"
 	make -s -C go run TIME_FORMAT="%E"
 	make -s -C v run TIME_FORMAT="%E"
+	make -s -C d run TIME_FORMAT="%E"
 
 benchmark_table:
 	echo '```'
@@ -30,11 +32,12 @@ benchmark_table:
 compiler_version_table:
 	echo '```'
 	rustc --version
-	$(CC) --version | head -n 1
+	$(CC) --version | head -n 1 || $(CC) -version
 	echo -n "zig " && zig version
 	go version
 	gccgo --version | head -n 1
 	v version
+	dmd --version | head -n 1
 	echo '```'
 
 clean:
@@ -43,6 +46,7 @@ clean:
 	make -s -C zig clean
 	make -s -C go clean
 	make -s -C v clean
+	make -s -C d clean
 
 readme:
 	cat README.md.header

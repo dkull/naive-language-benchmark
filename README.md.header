@@ -1,20 +1,16 @@
 # naive-language-benchmark
 
-Comparing naive implementations in compiled languages. These tests are mostly for seeing the optimization capabilities of the compilers behind the language.
+Comparing naive implementations in compiled languages. The goal is to compare the optimization capabilities of the compilers behind the languages.
 
-All the benchmarks are written by me in good faith. I am most proficient in Rust. The others are written based on official language docs.
-The first language gets an original implementation(might be based on RosettaCode, Wikipedia, etc.) and the following implementations
-are based on that implementation as closely as possible. Getting a benchmark to work in the following languages is mostly just satisfying 
-the compiler (type) errors, no other language specific optimizations are done.
+All the benchmarks are written by me in good faith. I don't use any of these languages daily, though I have written something non-trivial in each of them at some point in time.
+For a new test a language is subjectively chosen to get an original implementation(might be based on RosettaCode, Wikipedia, etc.). The following languages will try to mimic the structure of the original one as closely as possible. Getting a the follow-up languages to run is mostly just satisfying 
+the compiler errors and playing around with casts.
 
-Pull requests are welcome to point out blatantly slow aspects(eg. "that type of cast is slow in language X", "that compiler option makes it slow/fast"). Minor improvements
-are not the point, any speedup due to a compiler flag or tweaking something obvious/simple should provide a noticeable speed improvement. 
-All languages have to use a static set of compiler flags specific for that language - no benchmark specific flags.
-Any change should be "trivial" (obious to a newbie to the language).
+All languages use a static set of compiler flags specific for that language - no benchmark specific flags.
 
-Compiler flags are chosen naively on the basis of "optimize everything - simply!", they are not A/B tested extensively. They are mostly found by some searching and from man pages.
+Compiler flags are chosen on the basis of "optimize everything - simply!", some trivial A/B testing is done. Some testing of different integer types is done.
 
-Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; screenfetch (optional for README.md)
+Required software in $PATH: rustc ; v ; zig ; gccgo ; gcc ; go ; ldc2 screenfetch (optional for README.md)
 
 Run for just the benchmark tables:
 ```

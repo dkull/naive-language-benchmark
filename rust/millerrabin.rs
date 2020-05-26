@@ -18,19 +18,21 @@ fn witness(n: u32, _s: u32, d: u32, a: u32) -> bool {
 
     let mut s = _s;
     let n = n as u64;
+    let mut is_witness = true;
     while s > 0 {
         // powmod
         y = (x * x) % n;
         if y == 1 && x != 1 && x != n - 1 {
-            return false;
+            is_witness = false;
+            break;
         }
         x = y;
         s -= 1;
     }
     if y != 1 {
-        return false;
+        is_witness = false;
     }
-    return true;
+    return is_witness;
 }
 
 fn is_rabin_miller_prime(n: u32, witnesses: &[u32; 7]) -> bool {

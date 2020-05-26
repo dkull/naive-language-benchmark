@@ -30,7 +30,7 @@ fn new_rc4(key string) RC4 {
     }
 }
 
-fn (rc4 mut RC4) get_byte() byte {
+fn (mut rc4 RC4) get_byte() byte {
     rc4.i = (rc4.i + 1) % 256
     rc4.j = (rc4.j + rc4.s[rc4.i]) % 256
 
