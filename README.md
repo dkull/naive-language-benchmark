@@ -24,26 +24,26 @@ make -s readme
 ```
 gcc    c     adler32      c8be4a0c     N/A   0:00.59
 gcc    v     adler32      c8be4a0c     N/A   0:00.59
+ldc2   d     adler32      c8be4a0c     N/A   0:00.65
 rustc  rust  adler32      c8be4a0c     N/A   0:00.70
-ldc2   d     adler32      c8be4a0c     N/A   0:00.71
-zig    zig   adler32      c8be4a0c     N/A   0:00.83
+zig    zig   adler32      c8be4a0c     N/A   0:00.84
 gcc    go    adler32      c8be4a0c     N/A   0:00.85
 go     go    adler32      c8be4a0c     N/A   0:00.85
 
 gcc    v     millerrabin  183065       N/A   0:00.74
+ldc2   d     millerrabin  183065       N/A   0:00.75
 gcc    go    millerrabin  183065       N/A   0:00.76
 zig    zig   millerrabin  183065       N/A   0:00.76
-ldc2   d     millerrabin  183065       N/A   0:00.77
-go     go    millerrabin  183065       N/A   0:00.79
+go     go    millerrabin  183065       N/A   0:00.78
 rustc  rust  millerrabin  183065       N/A   0:00.79
 
-rustc  rust  rc4          31875526832  422   0:00.42
-gcc    v     rc4          31875526832  476   0:00.47
-gcc    c     rc4          31875526832  511   0:00.51
-zig    zig   rc4          31875526832  522   0:00.52
-gcc    go    rc4          31875526832  591   0:00.60
-ldc2   d     rc4          31875526832  N/A   0:00.86
-go     go    rc4          31875526832  1145  0:01.14
+rustc  rust  rc4          31875526832  425   0:00.42
+gcc    v     rc4          31875526832  475   0:00.47
+gcc    c     rc4          31875526832  507   0:00.50
+zig    zig   rc4          31875526832  523   0:00.52
+ldc2   d     rc4          31875526832  N/A   0:00.57
+gcc    go    rc4          31875526832  592   0:00.60
+go     go    rc4          31875526832  1148  0:01.14
 ```
 ```
 rustc 1.45.0-nightly (a74d1862d 2020-05-14)
@@ -52,13 +52,13 @@ zig 0.6.0+01605a774
 go version go1.14.2 linux/amd64
 gccgo (Ubuntu 10.1.0-2ubuntu1~18.04) 10.1.0
 V 0.1.27 2eac2a5
-DMD64 D Compiler v2.092.0
+LDC - the LLVM D compiler (1.21.0):
 ```
 Benchmarks are run on:
 ```
  OS: Mint 19.3 tricia
  Kernel: x86_64 Linux 5.3.0-53-generic
  CPU: Intel Core i7-6700K @ 8x 4.2GHz
- RAM: 8707MiB / 32054MiB
+ RAM: 8741MiB / 32054MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit
 ```

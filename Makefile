@@ -37,7 +37,7 @@ compiler_version_table:
 	go version
 	gccgo --version | head -n 1
 	v version
-	dmd --version | head -n 1
+	ldc2 --version | head -n 1
 	echo '```'
 
 clean:
