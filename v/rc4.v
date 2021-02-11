@@ -11,7 +11,7 @@ fn new_rc4(key string) RC4 {
     mut data := [byte(0)].repeat(256)
 
     for i, _ in data {
-        data[i] = i
+        data[i] = byte(i)
     }
 
     mut j := 0

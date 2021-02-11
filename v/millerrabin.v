@@ -1,12 +1,12 @@
 fn powmod(_base int, _pow int, mod int) u64 {
-    mut result := 1
+    mut result := u64(1)
     mut base := u64(_base) // gets squared
     mut pow := _pow
     for pow > 0 {
         if pow & 1 == 1 {
-            result = (result * base) % mod
+            result = (u64(result) * base) % u64(mod)
         }
-        base = (base * base) % mod
+        base = (base * base) % u64(mod)
         pow >>= 1
     }
     return result
@@ -19,7 +19,7 @@ fn witness(n int, _s int, d int, a int) bool {
     mut s := _s
     for s > 0 {
         // powmod
-        y = (x * x) % n
+        y = (x * x) % u64(n)
         if y == 1 && x != 1 && x != n - 1 {
             return false
         }
@@ -53,7 +53,7 @@ fn is_rabin_miller_prime(n int, witnesses []int) bool {
 fn main() {
     witnesses := [2, 3, 5, 7, 11, 13, 17]
     mut prime_count := 0
-    for i := u32(3); i < 2500000; i++ {
+    for i := int(3); i < 2500000; i++ {
         if is_rabin_miller_prime(i, witnesses) {
             prime_count++
         }
