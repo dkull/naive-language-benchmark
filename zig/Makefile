@@ -6,11 +6,13 @@ EXECS = rc4 adler32 millerrabin
 .PHONY: build run all
 
 $(EXECS): %: %.zig
-	zig build-exe --release-fast --single-threaded --strip -mcpu native $<
+	zig build-exe -O ReleaseFast --single-threaded --strip -mcpu native $<
 
 all: $(EXECS)
 
 clean:
+	rm -rf zig-cache || true
+	rm ./*.o || true
 	rm $(EXECS)
 
 run: $(EXECS)
