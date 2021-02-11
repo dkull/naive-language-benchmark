@@ -19,23 +19,25 @@ class RC4
     var k_j: USize = 0
     try
       for k_i in Range(0, 256) do
-        let key_byte = key(k_i % key.size())?.usize()
-        k_j = (k_j + s(k_i)?.usize() + key_byte) % 256
+        let key_byte = key(k_i %% key.size())?.usize()
+        k_j = (k_j + s(k_i)?.usize() + key_byte) %% 256
         s(k_i)? = s(k_j)? = s(k_i)?
+        //s.swap_elements(k_i, k_j)?
       end
     end
 
-  fun ref get_byte(): U8? =>
-    i = (i +~ 1) %~ 256
+  fun ref get_byte(env: Env): U8? =>
+    i = (i +~ 1) %%~ 256
     let i' = i.usize()
 
-    j = (j +~ s(i')?.u32()) %~ 256
+    j = (j +~ s(i')?.u32()) %%~ 256
     let j' = j.usize()
 
-    //s(i')? = s(j')? = s(i')?
-    s.swap_elements(i', j')?
+    s(i')? = s(j')? = s(i')?
+    //s.swap_elements(i', j')?
 
-    let idx = (s(i')? +~ s(j')?).usize() %~ 256
+    // FIXME: Ponyc is broken - the modulus operation does not work here.
+    let idx = (s(i')? +~ s(j')?).usize() %%~ 256
     s(idx)?.u8()
 
 actor Main
@@ -45,8 +47,10 @@ actor Main
     let rc4: RC4 = rc4.create(key.array())
     var sum: U64 = 0
     try
-      for i in Range(0, 250000000) do
-        sum = sum +~ rc4.get_byte()?.u64()
+      for i in Range(0, 7) do
+        let byte = rc4.get_byte(env)?.u64()
+        env.out.print(byte.string())
+        sum = sum +~ byte
       end
     else
       env.out.print("error")
