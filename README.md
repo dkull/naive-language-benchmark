@@ -9,6 +9,7 @@ Each language will get a custom set of compiler flags - no benchmark specific fl
 Usually something like '-release -Ofast -flto -march=native' is used. Some A/B testing is done when choosing the subset.
 
 Required compilers in $PATH:
+```
 	gcc
 	clang
 	rustc
@@ -19,6 +20,7 @@ Required compilers in $PATH:
 	ldc2
 	v
 	ponyc  # currently not used
+```
 And 'screenfetch' (optional for README.md)
 
 NOTE: Some results differ a lot if an older version of GCC/Clang is used. I am always running with latest stable of both, even if it gives worse results.
@@ -39,12 +41,12 @@ make -s readme
 clang  nim   adler32      C8BE4A0C     594   0:00.59
 gcc    c     adler32      c8be4a0c     N/A   0:00.59
 gcc    v     adler32      c8be4a0c     N/A   0:00.59
-gcc    nim   adler32      C8BE4A0C     633   0:00.63
+gcc    nim   adler32      C8BE4A0C     632   0:00.63
 ldc2   d     adler32      c8be4a0c     N/A   0:00.65
-rustc  rust  adler32      c8be4a0c     N/A   0:00.70
+rustc  rust  adler32      c8be4a0c     N/A   0:00.71
 zig    zig   adler32      c8be4a0c     N/A   0:00.81
+go     go    adler32      c8be4a0c     N/A   0:00.84
 gcc    go    adler32      c8be4a0c     N/A   0:00.85
-go     go    adler32      c8be4a0c     N/A   0:00.85
 
 gcc    v     millerrabin  183065       N/A   0:00.73
 gcc    go    millerrabin  183065       N/A   0:00.74
@@ -53,15 +55,15 @@ zig    zig   millerrabin  183065       N/A   0:00.76
 rustc  rust  millerrabin  183065       N/A   0:00.79
 go     go    millerrabin  183065       N/A   0:00.80
 
-rustc  rust  rc4          31875526832  423   0:00.42
-gcc    v     rc4          31875526832  478   0:00.47
-gcc    c     rc4          31875526832  486   0:00.48
+rustc  rust  rc4          31875526832  428   0:00.42
+gcc    v     rc4          31875526832  476   0:00.47
+gcc    c     rc4          31875526832  490   0:00.49
 gcc    nim   rc4          31875526832  527   0:00.52
-zig    zig   rc4          31875526832  523   0:00.52
+zig    zig   rc4          31875526832  526   0:00.52
 ldc2   d     rc4          31875526832  N/A   0:00.56
-gcc    go    rc4          31875526832  591   0:00.60
-clang  nim   rc4          31875526832  883   0:00.88
-go     go    rc4          31875526832  1143  0:01.14
+gcc    go    rc4          31875526832  592   0:00.60
+clang  nim   rc4          31875526832  867   0:00.86
+go     go    rc4          31875526832  1145  0:01.14
 ```
 ```
 rustc 1.52.0-nightly (07194ffcd 2021-02-10)
@@ -78,7 +80,7 @@ Benchmarks are run on:
  OS: Linuxmint 20 ulyana
  Kernel: x86_64 Linux 5.4.0-54-generic
  Shell: bash 5.0.17
- CPU: Intel Core i7-6700K @ 8x 4.2GHz [36.0°C]
- RAM: 17305MiB / 32056MiB
+ CPU: Intel Core i7-6700K @ 8x 4.2GHz [35.0°C]
+ RAM: 17184MiB / 32056MiB
  Mitigated CPU bugs:  cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit srbds
 ```

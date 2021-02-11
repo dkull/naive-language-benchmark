@@ -9,6 +9,7 @@ Each language will get a custom set of compiler flags - no benchmark specific fl
 Usually something like '-release -Ofast -flto -march=native' is used. Some A/B testing is done when choosing the subset.
 
 Required compilers in $PATH:
+```
 	gcc
 	clang
 	rustc
@@ -19,6 +20,7 @@ Required compilers in $PATH:
 	ldc2
 	v
 	ponyc  # currently not used
+```
 And 'screenfetch' (optional for README.md)
 
 NOTE: Some results differ a lot if an older version of GCC/Clang is used. I am always running with latest stable of both, even if it gives worse results.
