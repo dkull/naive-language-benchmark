@@ -26,7 +26,7 @@ class RC4
       end
     end
 
-  fun ref get_byte(env: Env): U8? =>
+  fun ref get_byte(): U8? =>
     i = (i +~ 1) %%~ 256
     let i' = i.usize()
 
@@ -47,10 +47,8 @@ actor Main
     let rc4: RC4 = rc4.create(key.array())
     var sum: U64 = 0
     try
-      for i in Range(0, 7) do
-        let byte = rc4.get_byte(env)?.u64()
-        env.out.print(byte.string())
-        sum = sum +~ byte
+      for i in Range(0, 250000000) do
+        sum = sum +~ rc4.get_byte()?.u64()
       end
     else
       env.out.print("error")

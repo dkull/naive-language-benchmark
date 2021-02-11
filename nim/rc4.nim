@@ -1,3 +1,5 @@
+import std/monotimes
+import times
 
 type
   RC4 = object
@@ -35,6 +37,7 @@ proc get_byte(rc4: var RC4): uint16 =
   return rc4.s[idx]
 
 proc bench() =
+  let start = getMonoTime()
   const
     key = "Keyfobsrulethebestofall"
 
@@ -48,7 +51,9 @@ proc bench() =
     let byte: uint16 = rc4.get_byte()
     sum += uint64(byte)
 
-  echo "|nim|rc4|", $sum, "|N/A|"
+  let delta = (getMonoTime() - start).inMilliseconds()
+
+  echo "|nim|rc4|", $sum, "|", delta, "|"
 
 when isMainModule:
   bench()

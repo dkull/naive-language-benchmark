@@ -14,7 +14,7 @@ build:
 	make -s -C go build
 	make -s -C v build
 	make -s -C d build
-	make -s -C pony build
+	#make -s -C pony build
 	make -s -C nim build
 
 run:
@@ -25,7 +25,7 @@ run:
 	make -s -C go run TIME_FORMAT="%E"
 	make -s -C v run TIME_FORMAT="%E"
 	make -s -C d run TIME_FORMAT="%E"
-	make -s -C pony run TIME_FORMAT="%E"
+	#make -s -C pony run TIME_FORMAT="%E"
 	make -s -C nim run TIME_FORMAT="%E"
 
 benchmark_table:
@@ -42,7 +42,7 @@ compiler_version_table:
 	gccgo --version | head -n 1
 	v version
 	ldc2 --version | head -n 1
-	echo -n "ponyc: " && ponyc --version | head -n 1
+	#echo -n "ponyc: " && ponyc --version | head -n 1
 	nim --version | head -n 1
 	echo '```'
 
@@ -53,7 +53,7 @@ clean:
 	make -s -C go clean
 	make -s -C v clean
 	make -s -C d clean
-	make -s -C pony clean
+	#make -s -C pony clean
 	make -s -C nim clean
 
 readme:
@@ -63,7 +63,7 @@ readme:
 	echo "Benchmarks are run on:"
 	echo '```'
 	#screenfetch -E -nN -d'-wm;-res;-de;-uptime;-pkgs;-shell;-host;-gpu' || true
-	screenfetch -n -d '-uptime;-wm;-wmtheme;-gtk;-disk;-res;-de;-gpu;-pkgs;-host' || true
+	screenfetch -E -nN -d '-uptime;-wm;-wmtheme;-gtk;-disk;-res;-de;-gpu;-pkgs;-host' || true
 	echo -n " Mitigated CPU bugs: "
 	cat /proc/cpuinfo| grep bugs | head -n 1 | cut -d: -f 2
 	echo '```'
