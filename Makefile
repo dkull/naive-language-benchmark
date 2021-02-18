@@ -8,25 +8,25 @@ export CC=gcc
 
 build:
 	#echo "comp|lang|bench|result|stdout|00time"
-	make -s -C rust build
-	make -s -C c build
-	make -s -C zig build
-	make -s -C go build
-	make -s -C v build
-	make -s -C d build
-	#make -s -C pony build
-	make -s -C nim build
+	make -s -C rust build || true
+	make -s -C c build || true
+	make -s -C zig build || true
+	make -s -C go build || true
+	make -s -C v build || true
+	make -s -C d build || true
+	#make -s -C pony build || true
+	make -s -C nim build || true
 
 run:
 	#echo "comp|lang|bench|result|stdout|00time"
-	make -s -C rust run TIME_FORMAT="%E"
-	make -s -C c run TIME_FORMAT="%E"
-	make -s -C zig run TIME_FORMAT="%E"
-	make -s -C go run TIME_FORMAT="%E"
-	make -s -C v run TIME_FORMAT="%E"
-	make -s -C d run TIME_FORMAT="%E"
-	#make -s -C pony run TIME_FORMAT="%E"
-	make -s -C nim run TIME_FORMAT="%E"
+	make -s -C rust run TIME_FORMAT="%E" || true
+	make -s -C c run TIME_FORMAT="%E" || true
+	make -s -C zig run TIME_FORMAT="%E" || true
+	make -s -C go run TIME_FORMAT="%E" || true
+	make -s -C v run TIME_FORMAT="%E" || true
+	make -s -C d run TIME_FORMAT="%E" || true
+	#make -s -C pony run TIME_FORMAT="%E" || true
+	make -s -C nim run TIME_FORMAT="%E" || true
 
 benchmark_table:
 	echo '```'
@@ -47,14 +47,14 @@ compiler_version_table:
 	echo '```'
 
 clean:
-	make -s -C rust clean
-	make -s -C c clean
-	make -s -C zig clean
-	make -s -C go clean
-	make -s -C v clean
-	make -s -C d clean
-	#make -s -C pony clean
-	make -s -C nim clean
+	make -s -C rust clean || true
+	make -s -C c clean || true
+	make -s -C zig clean || true
+	make -s -C go clean || true
+	make -s -C v clean || true
+	make -s -C d clean || true
+	#make -s -C pony clean || true
+	make -s -C nim clean || true
 
 readme:
 	cat README.md.header

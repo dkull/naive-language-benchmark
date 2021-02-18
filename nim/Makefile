@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 
 # !!! Update this when adding new
-EXECS = rc4 adler32
-RUNNABLES = rc4_gcc rc4_clang adler32_gcc adler32_clang
+EXECS = rc4 adler32 millerrabin
+RUNNABLES = rc4_gcc rc4_clang adler32_gcc adler32_clang millerrabin_gcc millerrabin_clang
 
 .PHONY: build run all
 
