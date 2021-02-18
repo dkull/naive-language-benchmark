@@ -16,9 +16,6 @@ proc powmod(base: int, pow: int, m: int): int =
 
   result = int(output)
 
-# test powmod
-assert(powmod(17, 13, 123223) == 2117, "modpow is broken")
-
 proc witness(n: int, s: int, d: int, a: int): bool =
   var
     x = uint(powmod(a, d, n))
