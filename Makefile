@@ -18,7 +18,7 @@ build:
 	make -s -C nim build || true
 
 run:
-	#echo "comp|lang|bench|result|stdout|00time"
+	#echo "comp|lang|bench|result|stdout|01time"
 	make -s -C rust run TIME_FORMAT="%E" || true
 	make -s -C c run TIME_FORMAT="%E" || true
 	make -s -C zig run TIME_FORMAT="%E" || true

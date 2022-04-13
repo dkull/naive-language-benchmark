@@ -1,25 +1,27 @@
 SHELL := /bin/bash
 
 # !!! Update this when adding new
-EXECS = rc4 adler32 millerrabin
-RUNNABLES = rc4_gcc rc4_clang adler32_gcc adler32_clang millerrabin_gcc millerrabin_clang
+BASENAMES := rc4 adler32 millerrabin
+#EXECUTABLES := BASENAMES
+EXECUTABLES := $(addsuffix .clang, $(BASENAMES)) $(addsuffix .gcc, $(BASENAMES))
+SOURCES := $(addsuffix .nim, $(BASENAMES))
 
 .PHONY: build run all
 
-$(EXECS): %: %.nim
-	nim c -d:release --opt:speed --passC:-march=native --cc:gcc -o:$@_gcc $< > /dev/null
-	nim c -d:release --opt:speed --passC:-march=native --cc:clang -o:$@_clang $< > /dev/null
+all: $(EXECUTABLES)
 
-all: $(EXECS)
+$(EXECUTABLES): $(SOURCES)
+	nim c -d:release --opt:speed --passC:-march=native --cc:$(subst .,,$(suffix $@)) -o:$@ $(filter $(basename $@).%, $?)
 
-clean:
-	rm $(EXECS) || true
-	rm $(RUNNABLES) || true
-
-run: $(EXECS)
-	for exec in $(RUNNABLES); do \
-		export COMPILER=`echo $$exec | cut -d '_' -f 2-`; \
-		sed "s/^/$$COMPILER/" <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
+run: $(EXECUTABLES)
+	for exec in $(EXECUTABLES); do \
+		export COMPILER=`echo $$exec | cut -d '.' -f 2-`; \
+		export PROG_OUTPUT=`./$$exec`; \
+		export BENCH_OUTPUT=`nice -20 perf stat -r 5 -B ./$$exec 2>&1 | grep "time elapsed" | tr -s " " | cut -d " " -f 2,3,10`; \
+		sed "s/^/$$COMPILER/" <(echo $$PROG_OUTPUT $$BENCH_OUTPUT | tr -d '\n'); \
 		echo ""; \
 	done
+
+clean:
+	rm $(EXECUTABLES)
 
