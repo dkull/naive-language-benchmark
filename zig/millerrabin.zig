@@ -1,5 +1,5 @@
 const std = @import("std");
-const log = std.debug.warn;
+const print = std.debug.print;
 
 fn powmod(_base: u32, _pow: u32, mod: u32) u32 {
     var result: u64 = 1;
@@ -64,5 +64,5 @@ pub fn main() void {
             prime_count += 1;
         }
     }
-    log("|zig|millerrabin|{}|{}|\n", .{ prime_count, "N/A" });
+    print("|zig|millerrabin|{}|N/A|\n", .{prime_count});
 }

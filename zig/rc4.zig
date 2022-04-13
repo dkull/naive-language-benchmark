@@ -1,5 +1,5 @@
 const std = @import("std");
-const log = std.debug.warn;
+const print = std.debug.print;
 
 pub const RC4 = struct {
     s: [256]u8,
@@ -55,7 +55,7 @@ export fn bench() void {
 
     const end = std.time.milliTimestamp();
     const delta = end - start;
-    log("|zig|rc4|{}|{}|\n", .{ sum, delta });
+    print("|zig|rc4|{}|{}|\n", .{ sum, delta });
 }
 
 export fn prod(a: i64, b: i64) i64 {

@@ -1,5 +1,5 @@
 const std = @import("std");
-const log = std.debug.warn;
+const print = std.debug.print;
 
 const MOD_ADLER: u32 = 65521;
 
@@ -13,5 +13,5 @@ pub fn main() void {
     }
     const result = b << 16 | a;
 
-    log("|zig|adler32|{x}|N/A|\n", .{result});
+    print("|zig|adler32|{x}|N/A|\n", .{result});
 }
