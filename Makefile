@@ -16,6 +16,7 @@ build:
 	make -s -C d build || true
 	#make -s -C pony build || true
 	make -s -C nim build || true
+	make -s -C dart build || true
 
 run:
 	#echo "comp|lang|bench|result|stdout|01time"
@@ -27,6 +28,7 @@ run:
 	make -s -C d run TIME_FORMAT="%E" || true
 	#make -s -C pony run TIME_FORMAT="%E" || true
 	make -s -C nim run TIME_FORMAT="%E" || true
+	make -s -C dart run TIME_FORMAT="%E" || true
 
 benchmark_table:
 	echo '```'
@@ -44,6 +46,7 @@ compiler_version_table:
 	ldc2 --version | head -n 1
 	#echo -n "ponyc: " && ponyc --version | head -n 1
 	nim --version | head -n 1
+	dart --version
 	echo '```'
 
 clean:
@@ -55,6 +58,7 @@ clean:
 	make -s -C d clean || true
 	#make -s -C pony clean || true
 	make -s -C nim clean || true
+	make -s -C dart clean || true
 
 readme:
 	cat README.md.header
