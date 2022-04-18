@@ -8,10 +8,10 @@ EXECS = rc4 adler32 millerrabin
 $(EXECS): %: %.d
 	ldc2 -release \
 		-Oz \
-		-flto=full \
 		-mcpu=native \
 		-boundscheck=off $ \
 		$< -of $@
+		#-flto=full \
 
 	#dmd -O \
 	#	-release \
