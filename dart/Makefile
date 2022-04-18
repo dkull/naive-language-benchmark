@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 # !!! Update this when adding new
-EXECS = adler32 rc4
+EXECS = adler32 rc4 millerrabin
 
 .PHONY: build run all
 

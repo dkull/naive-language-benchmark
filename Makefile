@@ -38,7 +38,8 @@ benchmark_table:
 compiler_version_table:
 	echo '```'
 	rustc --version
-	$(CC) --version | head -n 1 || $(CC) -version
+	gcc --version | head -n 1 || gcc -version
+	clang --version | head -n 1 || clang -version
 	echo -n "zig " && zig version
 	go version
 	gccgo --version | head -n 1
