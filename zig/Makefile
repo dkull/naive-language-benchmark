@@ -20,5 +20,9 @@ run: $(EXECS)
 	for exec in $(EXECS); do \
 		sed 's/^/zig/' <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
 		echo ""; \
+		#export PROG_OUTPUT=`./$$exec 2>&1`; \
+		#export BENCH_OUTPUT=`perf stat -r 5 -B ./$$exec 2>&1 | grep "time elapsed" | tr -s " " | cut -d " " -f 2,3,10`; \
+		#sed 's/^/zig/' <(echo $$PROG_OUTPUT $$BENCH_OUTPUT | tr -d '\n'); \
+		#echo ""; \
 	done
 

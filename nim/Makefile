@@ -17,9 +17,12 @@ run: $(EXECUTABLES)
 	for exec in $(EXECUTABLES); do \
 		export COMPILER=`echo $$exec | cut -d '.' -f 2-`; \
 		export PROG_OUTPUT=`./$$exec`; \
-		export BENCH_OUTPUT=`nice -20 perf stat -r 5 -B ./$$exec 2>&1 | grep "time elapsed" | tr -s " " | cut -d " " -f 2,3,10`; \
+		export BENCH_OUTPUT=`nice -20 time ./$$exec 2>&1 | grep "time elapsed" | tr -s " " | cut -d " " -f 2,3,10`; \
 		sed "s/^/$$COMPILER/" <(echo $$PROG_OUTPUT $$BENCH_OUTPUT | tr -d '\n'); \
 		echo ""; \
+		#export BENCH_OUTPUT=`nice -20 perf stat -r 5 -B ./$$exec 2>&1 | grep "time elapsed" | tr -s " " | cut -d " " -f 2,3,10`; \
+		#sed 's/^/nim/' <(/usr/bin/time -f "$(TIME_FORMAT)" ./$$exec 2>&1 | head -n2 | tr '\n' ' ' | tr -d ' '); \
+		#echo ""; \
 	done
 
 clean:
