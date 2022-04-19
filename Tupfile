@@ -1,0 +1,20 @@
+# measure all executable runtimes
+# 1) echo the executable without .exe and directory (eg. adler32, rc4.clang, ...)
+# 2) 
+!time = |> echo -n %B | cut -d "." -f 2 -s | tr -d "\n" > %o && /usr/bin/time -f "%%E" ./%f 2>&1 | tr -d "\n" >> %o  && echo -n "\n" >> %o |>
+#!time = |> echo -n %B | cut -d "." -f 2 -s -z > %o |>
+
+: foreach c/*.exe |> !time |> outputs/c_%B
+: foreach d/*.exe |> !time |> outputs/d_%B
+: foreach dart/*.exe |> !time |> outputs/dart_%B
+: foreach go/*.exe |> !time |> outputs/go_%B
+: foreach nim/*.exe |> !time |> outputs/nim_%B
+: foreach rust/*.exe |> !time |> outputs/rust_%B
+: foreach v/*.exe |> !time |> outputs/v_%B
+: foreach zig/*.exe |> !time |> outputs/zig_%B
+
+#: outputs/* |> awk 'FNR==0{print ""}1' %f > %o |> concatenated.generated
+: outputs/* |> cat %f | sort -t"|" -k3,3 -k6,6 | awk -F'|' -v i=3 '$i!=p {print "" }{ p=$i } 1' - | column -e -s "|" -t -n > %o |> table.generated
+: table.generated |> cat README.md.header %f > %o |> README.md
+
+#: output/* |> cat %f >> %o |> table.concat

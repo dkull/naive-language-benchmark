@@ -1,0 +1,5 @@
+!nim = |> nim c -d:release --opt:speed --passC:-fPIE --passC:-march=native -o:%o |>
+
+: foreach *.nim |> !nim %f |> %B.gcc.exe
+: foreach *.nim |> !nim --cc:clang %f |> %B.clang.exe
+

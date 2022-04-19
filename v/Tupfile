@@ -1,0 +1,2 @@
+: foreach *.v |> v -prod -cc gcc -cflags -flto -cflags -Ofast -cflags -march=native %f -o %o |> %B.gcc.exe
+: foreach *.v |> v -prod -cc clang -cflags -flto -cflags -Ofast -cflags -march=native %f -o %o |> %B.clang.exe

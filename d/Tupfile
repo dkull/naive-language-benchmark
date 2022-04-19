@@ -1,0 +1,2 @@
+: foreach *.d |> ldc2 --od /tmp/ -release -O3 -mcpu=native -boundscheck=off %f --gcc=gcc -of %o |> %B.gcc.exe
+: foreach *.d |> ldc2 --od /tmp/ -release -O3 -mcpu=native -boundscheck=off %f --gcc=clang -of %o |> %B.clang.exe

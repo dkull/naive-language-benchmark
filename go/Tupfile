@@ -1,0 +1,2 @@
+: foreach *.go |> go build -gcflags=-B -o %o %f |> %B.go.exe
+: foreach *.go |> go build -compiler gccgo -gccgoflags '-Ofast -flto -march=native' -o %o %f |> %B.gccgo.exe

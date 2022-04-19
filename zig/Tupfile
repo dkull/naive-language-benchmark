@@ -1,0 +1,1 @@
+: foreach *.zig |> zig build-exe -O ReleaseFast -mcpu native %f --cache-dir /tmp/ --name %o |> %B.exe

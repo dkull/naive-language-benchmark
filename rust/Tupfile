@@ -1,0 +1,1 @@
+: foreach *.rs |>rustc -A dead_code -C opt-level=3 -C lto -C target-cpu=native %f -o %o|> %B.rustc.exe

@@ -1,0 +1,5 @@
+!gcc = |> gcc -O3 -march=native -flto %f -o %o |>
+!clang = |> clang -O3 -march=native -flto %f -o %o |>
+
+: foreach *.c |> !gcc |> %B.gcc.exe
+: foreach *.c |> !clang |> %B.clang.exe

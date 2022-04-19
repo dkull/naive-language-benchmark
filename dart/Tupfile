@@ -1,0 +1,1 @@
+: foreach *.dart |> dart compile exe %f -o %o |> %B.exe
