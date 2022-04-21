@@ -15,6 +15,6 @@
 
 #: outputs/* |> awk 'FNR==0{print ""}1' %f > %o |> concatenated.generated
 : outputs/* |> cat %f | sort -t"|" -k3,3 -k6,6 | awk -F'|' -v i=3 '$i!=p {print "" }{ p=$i } 1' - | column -e -s "|" -t -n > %o |> table.generated
-: table.generated |> cat README.md.header %f > %o |> README.md
+: table.generated |> bash -c "cat README.md.header <(echo '\`\`\`') %f <(echo '\`\`\`') > %o" |> README.md
 
 #: output/* |> cat %f >> %o |> table.concat

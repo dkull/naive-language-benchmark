@@ -1,17 +1,18 @@
 # naive-language-benchmark
 
-Comparing naive implementations in compiled languages only. The goal is to compare the optimization capabilities of the compilers behind the languages.
-All the benchmarks are written by me in good faith. I don't use any of these languages daily though the amount of code I have written varies a lot.
+Compare optimization capabilities of different compilers.
 
-All the implementations will try to be as similar as possible across all languages. Some testing of different integer types, etc. is done for performance.
+All the implementations will try to be as similarly naive as possible across all languages. Some testing of different integer types, etc. is done for performance.
 
-Each language will get a custom set of compiler flags - no benchmark specific flags. Flags described in the compilers '--help' are priority and acceptable.
 Usually something like '-release -Ofast -flto -march=native' is used. Some A/B testing is done when choosing the subset.
+
+Build system uses tup (https://gittup.org/tup/index.html)
 
 Required compilers in $PATH:
 ```
 	gcc
 	clang
+	dart
 	rustc
 	go
 	gccgo
@@ -19,24 +20,16 @@ Required compilers in $PATH:
 	zig
 	ldc2
 	v
-	ponyc  # currently not used
 ```
 And 'screenfetch' (optional for README.md)
 
-NOTE: Some results differ a lot if an older version of GCC/Clang is used. I am always running with latest stable of both, even if it gives worse results.
-Otherwise the compiler version may be very different - some are nightlies, some are git master clones, some are stables. But I try to prefer newer usable
-versions.
-
-Run for just the benchmark tables:
-```
-make -s benchmark_table
-```
-
 Run to generate this README.md:
+
 ```
-make -s readme
+tup -j1
 ```
 
+```
 
 clang  nim   adler32      C8BE4A0C     594   0:00.59
 gcc    c     adler32      c8be4a0c     N/A   0:00.60
@@ -76,4 +69,5 @@ gccgo  go    rc4          31875526832  600   0:00.61
 clang  c     rc4          31875526832  724   0:00.72
 clang  nim   rc4          31875526832  842   0:00.84
 go     go    rc4          31875526832  1016  0:01.01
-       dart  rc4          31875526832  1266  0:01.27
+       dart  rc4          31875526832  1724  0:01.73
+```
